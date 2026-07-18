@@ -19,11 +19,7 @@ export default function ProductCard({
 }) {
   return (
     <article className="flex h-full flex-col rounded-3xl bg-white p-3 shadow-sm">
-      <div
-        className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${
-          product.imageFit === "cover" ? "bg-slate-100" : "bg-cloud"
-        }`}
-      >
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-cloud">
         {product.badge && (
           <span className="absolute top-3 left-3 z-10 rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700">
             {product.badge}
@@ -34,9 +30,7 @@ export default function ProductCard({
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className={
-            product.imageFit === "cover" ? "object-cover" : "object-contain p-6"
-          }
+          className="object-contain p-6"
         />
       </div>
 

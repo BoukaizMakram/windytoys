@@ -1,33 +1,33 @@
 "use client";
 
+import { Suspense, useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, ContactShadows } from "@react-three/drei";
-import { useRef } from "react";
-import type { Group } from "three";
+import {
+  Center,
+  ContactShadows,
+  Float,
+  useAnimations,
+  useGLTF,
+} from "@react-three/drei";
+import { Box3, Vector3, type Group } from "three";
 
-function Propeller() {
-  const ref = useRef<Group>(null);
-
-  useFrame((_, delta) => {
-    if (ref.current) ref.current.rotation.x += delta * 18;
-  });
-
-  return (
-    <group ref={ref} position={[2.08, 0, 0]}>
-      <mesh>
-        <boxGeometry args={[0.05, 1.7, 0.15]} />
-        <meshStandardMaterial color="#1e293b" />
-      </mesh>
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <boxGeometry args={[0.05, 1.7, 0.15]} />
-        <meshStandardMaterial color="#1e293b" />
-      </mesh>
-    </group>
-  );
-}
+const MODEL_URL = "/rcvolare.glb";
+/** Envergure cible en unités monde, calée sur l'ancienne maquette. */
+const TARGET_WINGSPAN = 4.6;
 
 function Plane() {
   const ref = useRef<Group>(null);
+  const { scene, animations } = useGLTF(MODEL_URL);
+  const { actions } = useAnimations(animations, scene);
+
+  useEffect(() => {
+    Object.values(actions).forEach((action) => action?.reset().play());
+  }, [actions]);
+
+  const scale = useMemo(() => {
+    const size = new Box3().setFromObject(scene).getSize(new Vector3());
+    return TARGET_WINGSPAN / Math.max(size.x, size.y, size.z, 0.001);
+  }, [scene]);
 
   useFrame((state) => {
     const g = ref.current;
@@ -40,75 +40,18 @@ function Plane() {
   });
 
   return (
-    <group ref={ref} position={[-0.12, -0.05, 0]} rotation={[0.06, -0.55, 0]} scale={0.82}>
-      {/* Fuselage */}
-      <mesh rotation={[0, 0, -Math.PI / 2]}>
-        <cylinderGeometry args={[0.42, 0.26, 3.1, 32]} />
-        <meshStandardMaterial color="#f8fafc" />
-      </mesh>
-      {/* Capot moteur */}
-      <mesh position={[1.78, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
-        <cylinderGeometry args={[0.38, 0.45, 0.5, 32]} />
-        <meshStandardMaterial color="#1b2c88" />
-      </mesh>
-      {/* Cône d'hélice */}
-      <mesh position={[2.2, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
-        <coneGeometry args={[0.16, 0.34, 24]} />
-        <meshStandardMaterial color="#1e293b" />
-      </mesh>
-      {/* Verrière */}
-      <mesh position={[0.55, 0.38, 0]} scale={[0.6, 0.32, 0.4]}>
-        <sphereGeometry args={[1, 24, 16]} />
-        <meshStandardMaterial color="#0f172a" roughness={0.15} metalness={0.4} />
-      </mesh>
-      {/* Ailes hautes avec léger dièdre */}
-      <mesh position={[0.25, 0.52, 1.15]} rotation={[-0.05, 0, 0]}>
-        <boxGeometry args={[1.15, 0.09, 2.3]} />
-        <meshStandardMaterial color="#273fc5" />
-      </mesh>
-      <mesh position={[0.25, 0.52, -1.15]} rotation={[0.05, 0, 0]}>
-        <boxGeometry args={[1.15, 0.09, 2.3]} />
-        <meshStandardMaterial color="#273fc5" />
-      </mesh>
-      {/* Saumons d'aile */}
-      <mesh position={[0.25, 0.63, 2.38]} rotation={[-0.05, 0, 0]}>
-        <boxGeometry args={[1.0, 0.09, 0.2]} />
-        <meshStandardMaterial color="#dde3fa" />
-      </mesh>
-      <mesh position={[0.25, 0.63, -2.38]} rotation={[0.05, 0, 0]}>
-        <boxGeometry args={[1.0, 0.09, 0.2]} />
-        <meshStandardMaterial color="#dde3fa" />
-      </mesh>
-      {/* Empennage */}
-      <mesh position={[-1.45, 0.05, 0]}>
-        <boxGeometry args={[0.55, 0.07, 1.5]} />
-        <meshStandardMaterial color="#273fc5" />
-      </mesh>
-      <mesh position={[-1.5, 0.45, 0]}>
-        <boxGeometry args={[0.5, 0.75, 0.07]} />
-        <meshStandardMaterial color="#1b2c88" />
-      </mesh>
-      {/* Train d'atterrissage */}
-      <mesh position={[0.5, -0.45, 0.4]} rotation={[0.3, 0, 0]}>
-        <cylinderGeometry args={[0.03, 0.03, 0.5, 12]} />
-        <meshStandardMaterial color="#334155" />
-      </mesh>
-      <mesh position={[0.5, -0.45, -0.4]} rotation={[-0.3, 0, 0]}>
-        <cylinderGeometry args={[0.03, 0.03, 0.5, 12]} />
-        <meshStandardMaterial color="#334155" />
-      </mesh>
-      <mesh position={[0.5, -0.7, 0.48]} rotation={[Math.PI / 2, 0, 0]}>
-        <cylinderGeometry args={[0.15, 0.15, 0.09, 24]} />
-        <meshStandardMaterial color="#1e293b" />
-      </mesh>
-      <mesh position={[0.5, -0.7, -0.48]} rotation={[Math.PI / 2, 0, 0]}>
-        <cylinderGeometry args={[0.15, 0.15, 0.09, 24]} />
-        <meshStandardMaterial color="#1e293b" />
-      </mesh>
-      <Propeller />
+    <group ref={ref} position={[-0.12, -0.05, 0]} rotation={[0.06, -0.55, 0]}>
+      <Center>
+        {/* Export Blender : nez vers -Z, on l'oriente vers +X comme l'ancienne maquette. */}
+        <group rotation={[0, -Math.PI / 2, 0]} scale={scale}>
+          <primitive object={scene} />
+        </group>
+      </Center>
     </group>
   );
 }
+
+useGLTF.preload(MODEL_URL);
 
 export default function PlaneScene() {
   return (
@@ -121,17 +64,19 @@ export default function PlaneScene() {
       <hemisphereLight intensity={0.8} groundColor="#dde3fa" />
       <directionalLight position={[4, 6, 3]} intensity={1.6} />
       <directionalLight position={[-4, 2, -3]} intensity={0.4} />
-      <Float speed={1.6} rotationIntensity={0.3} floatIntensity={0.9}>
-        <Plane />
-      </Float>
-      <ContactShadows
-        position={[0, -1.7, 0]}
-        opacity={0.25}
-        scale={9}
-        blur={2.8}
-        far={3}
-        color="#1b2c88"
-      />
+      <Suspense fallback={null}>
+        <Float speed={1.6} rotationIntensity={0.3} floatIntensity={0.9}>
+          <Plane />
+        </Float>
+        <ContactShadows
+          position={[0, -1.7, 0]}
+          opacity={0.25}
+          scale={9}
+          blur={2.8}
+          far={3}
+          color="#1b2c88"
+        />
+      </Suspense>
     </Canvas>
   );
 }
