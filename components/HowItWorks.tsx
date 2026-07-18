@@ -34,7 +34,7 @@ export default function HowItWorks() {
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
           {STEPS.map((step, i) => (
             <Reveal key={step.number} delay={i * 0.1} className="h-full">
-              <div className="relative h-full overflow-hidden rounded-3xl border border-slate-100 bg-white p-8 shadow-sm">
+              <div className="relative h-full overflow-hidden rounded-3xl bg-white p-8 shadow-sm">
                 <span className="font-display absolute -top-3 -right-1 text-7xl font-bold text-slate-100 select-none">
                   {step.number}
                 </span>
@@ -55,7 +55,7 @@ export default function HowItWorks() {
         <Reveal className="mt-12 text-center">
           <a
             href="#avions"
-            className="inline-block rounded-full bg-brand px-8 py-4 font-semibold text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-600"
+            className="inline-block rounded-full bg-brand px-8 py-4 font-semibold text-white transition hover:bg-brand-600"
           >
             Rejoindre la waitlist
           </a>

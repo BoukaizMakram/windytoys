@@ -1,4 +1,4 @@
-# AeroPlay.ma
+# WindyToys.ma
 
 Waitlist website for selling RC airplanes in Morocco. The public site does not
 take purchases yet: visitors choose a model, join the waitlist, and describe

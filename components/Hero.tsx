@@ -60,19 +60,19 @@ export default function Hero() {
             </span>
           </h1>
           <p className="hero-fade mx-auto mt-6 max-w-md text-lg text-slate-500 lg:mx-0">
-            AeroPlay prépare le lancement de ses avions télécommandés au Maroc.
+            WindyToys prépare le lancement de ses avions télécommandés au Maroc.
             Choisis ton modèle, donne ton budget, et entre dans la waitlist.
           </p>
           <div className="hero-fade mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
             <a
               href="#avions"
-              className="rounded-full bg-brand px-7 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-600"
+              className="rounded-full bg-brand px-7 py-3.5 font-semibold text-white transition hover:bg-brand-600"
             >
               Rejoindre la waitlist
             </a>
             <a
               href="#comment-ca-marche"
-              className="rounded-full border border-slate-200 bg-white px-7 py-3.5 font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand"
+              className="rounded-full bg-white px-7 py-3.5 font-semibold text-slate-700 transition hover:text-brand"
             >
               Comment ça marche
             </a>

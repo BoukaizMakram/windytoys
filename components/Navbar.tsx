@@ -23,8 +23,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6">
-        <a href="#" className="font-display text-xl font-bold tracking-tight">
-          Aero<span className="text-brand">Play</span>
+        <a href="#" className="font-logo text-2xl font-normal sm:text-3xl">
+          Windy<span className="text-brand">Toys</span>
           <span className="text-slate-400">.ma</span>
         </a>
 

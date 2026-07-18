@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,16 +13,22 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
+const talina = localFont({
+  src: "./fonts/talina-demo-regular.otf",
+  variable: "--font-talina",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "AeroPlay.ma — Waitlist avions télécommandés au Maroc",
+  title: "WindyToys.ma — Waitlist avions télécommandés au Maroc",
   description:
-    "Rejoins la waitlist AeroPlay.ma pour les avions RC au Maroc. Choisis ton modèle, indique ton budget et reçois une proposition au lancement.",
+    "Rejoins la waitlist WindyToys.ma pour les avions RC au Maroc. Choisis ton modèle, indique ton budget et reçois une proposition au lancement.",
   openGraph: {
-    title: "AeroPlay.ma — Waitlist avions télécommandés au Maroc",
+    title: "WindyToys.ma — Waitlist avions télécommandés au Maroc",
     description:
       "Avions RC pour débutants et passionnés au Maroc. Inscription waitlist gratuite, sans paiement aujourd'hui.",
     locale: "fr_MA",
-    siteName: "AeroPlay.ma",
+    siteName: "WindyToys.ma",
   },
 };
 
@@ -33,7 +40,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${geistSans.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${spaceGrotesk.variable} ${talina.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white font-sans text-slate-900">
         {children}

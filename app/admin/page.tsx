@@ -60,7 +60,7 @@ export default async function AdminPage() {
         <div className="flex flex-col justify-between gap-4 border-b border-slate-200 pb-6 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm font-semibold tracking-widest text-brand uppercase">
-              AeroPlay Admin
+              WindyToys Admin
             </p>
             <h1 className="font-display mt-2 text-4xl font-bold tracking-tight">
               Waitlist dashboard

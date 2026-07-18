@@ -10,7 +10,7 @@ const FAQS = [
   },
   {
     q: "Pourquoi vous demandez mon téléphone ?",
-    a: "C'est le moyen le plus simple pour confirmer le modèle, le stock, la ville et l'option de paiement quand AeroPlay lance les ventes.",
+    a: "C'est le moyen le plus simple pour confirmer le modèle, le stock, la ville et l'option de paiement quand WindyToys lance les ventes.",
   },
   {
     q: "Quel paiement est recommandé ?",
@@ -30,7 +30,7 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="scroll-mt-24 bg-cloud py-20 sm:py-28">
+    <section id="faq" className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <Reveal className="text-center">
           <p className="text-sm font-semibold tracking-widest text-brand uppercase">
@@ -48,7 +48,7 @@ export default function Faq() {
               return (
                 <div
                   key={faq.q}
-                  className="rounded-2xl border border-slate-100 bg-white shadow-sm"
+                  className="rounded-2xl bg-white shadow-sm"
                 >
                   <button
                     type="button"

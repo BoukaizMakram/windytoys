@@ -125,7 +125,7 @@ export default function WaitlistModal({
         <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-slate-100 bg-white/95 px-5 py-5 backdrop-blur sm:px-7">
           <div>
             <p className="text-xs font-semibold tracking-widest text-brand uppercase">
-              Waitlist AeroPlay
+              Waitlist WindyToys
             </p>
             <h2 className="font-display mt-1 text-2xl font-bold text-slate-900">
               {product.name}
@@ -154,7 +154,7 @@ export default function WaitlistModal({
             </h3>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-slate-500">
               On a sauvegardé ton numéro, tes préférences et ta note. Dès que le
-              stock est prêt, AeroPlay te contacte avec l’option de paiement la
+              stock est prêt, WindyToys te contacte avec l’option de paiement la
               plus simple pour toi.
             </p>
             <button
@@ -292,7 +292,7 @@ export default function WaitlistModal({
             <button
               type="submit"
               disabled={submitState === "submitting"}
-              className="rounded-full bg-brand px-7 py-4 font-semibold text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-600 disabled:cursor-wait disabled:opacity-60"
+              className="rounded-full bg-brand px-7 py-4 font-semibold text-white transition hover:bg-brand-600 disabled:cursor-wait disabled:opacity-60"
             >
               {submitState === "submitting"
                 ? "Ajout en cours..."

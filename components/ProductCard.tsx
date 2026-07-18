@@ -18,14 +18,14 @@ export default function ProductCard({
   onJoinWaitlist: (product: Product) => void;
 }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/10">
+    <article className="flex h-full flex-col rounded-3xl bg-white p-3 shadow-sm">
       <div
-        className={`relative aspect-[4/3] overflow-hidden ${
-          product.imageFit === "cover" ? "bg-slate-100" : "bg-white"
+        className={`relative aspect-[4/3] overflow-hidden rounded-2xl ${
+          product.imageFit === "cover" ? "bg-slate-100" : "bg-cloud"
         }`}
       >
         {product.badge && (
-          <span className="absolute top-4 left-4 z-10 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm">
+          <span className="absolute top-3 left-3 z-10 rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700">
             {product.badge}
           </span>
         )}
@@ -34,13 +34,13 @@ export default function ProductCard({
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className={`transition duration-500 ease-out group-hover:scale-105 ${
-            product.imageFit === "cover" ? "object-cover" : "object-contain p-5"
-          }`}
+          className={
+            product.imageFit === "cover" ? "object-cover" : "object-contain p-6"
+          }
         />
       </div>
 
-      <div className="flex flex-1 flex-col gap-2.5 p-6">
+      <div className="flex flex-1 flex-col gap-2.5 p-3 pt-4">
         <div className="flex items-center gap-2 text-xs">
           <span
             className={`rounded-full px-2.5 py-1 font-semibold ${LEVEL_STYLES[product.level]}`}

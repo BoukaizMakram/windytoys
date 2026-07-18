@@ -16,7 +16,7 @@ export type Product = {
   imageFit?: "contain" | "cover";
 };
 
-// Prix AeroPlay : estimation fournisseur en USD x 10 (USD -> MAD) x 1.5 (marge 50 %),
+// Prix WindyToys : estimation fournisseur en USD x 10 (USD -> MAD) x 1.5 (marge 50 %),
 // arrondi pour un prix e-commerce propre. Remplacer par les vrais prix grossiste quand le fournisseur confirme.
 export const PRODUCTS: Product[] = [
   {

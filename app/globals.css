@@ -4,6 +4,8 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-space-grotesk), var(--font-geist-sans), ui-sans-serif,
     system-ui, sans-serif;
+  --font-logo: var(--font-talina), var(--font-space-grotesk), ui-sans-serif,
+    system-ui, sans-serif;
 }
 
 @theme {
@@ -31,7 +33,7 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: var(--color-cloud);
   color: #0f172a;
 }
 

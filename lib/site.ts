@@ -1,6 +1,6 @@
-export const SITE_NAME = "AeroPlay.ma";
+export const SITE_NAME = "WindyToys.ma";
 
-export const CONTACT_EMAIL = "contact@aeroplay.ma";
+export const CONTACT_EMAIL = "contact@windytoys.ma";
 
 export const NAV_LINKS = [
   { href: "#avions", label: "Waitlist" },
