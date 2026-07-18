@@ -49,7 +49,7 @@ function Plane() {
       {/* Capot moteur */}
       <mesh position={[1.78, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
         <cylinderGeometry args={[0.38, 0.45, 0.5, 32]} />
-        <meshStandardMaterial color="#f97316" />
+        <meshStandardMaterial color="#1b2c88" />
       </mesh>
       {/* Cône d'hélice */}
       <mesh position={[2.2, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
@@ -64,29 +64,29 @@ function Plane() {
       {/* Ailes hautes avec léger dièdre */}
       <mesh position={[0.25, 0.52, 1.15]} rotation={[-0.05, 0, 0]}>
         <boxGeometry args={[1.15, 0.09, 2.3]} />
-        <meshStandardMaterial color="#38bdf8" />
+        <meshStandardMaterial color="#273fc5" />
       </mesh>
       <mesh position={[0.25, 0.52, -1.15]} rotation={[0.05, 0, 0]}>
         <boxGeometry args={[1.15, 0.09, 2.3]} />
-        <meshStandardMaterial color="#38bdf8" />
+        <meshStandardMaterial color="#273fc5" />
       </mesh>
       {/* Saumons d'aile */}
       <mesh position={[0.25, 0.63, 2.38]} rotation={[-0.05, 0, 0]}>
         <boxGeometry args={[1.0, 0.09, 0.2]} />
-        <meshStandardMaterial color="#f97316" />
+        <meshStandardMaterial color="#dde3fa" />
       </mesh>
       <mesh position={[0.25, 0.63, -2.38]} rotation={[0.05, 0, 0]}>
         <boxGeometry args={[1.0, 0.09, 0.2]} />
-        <meshStandardMaterial color="#f97316" />
+        <meshStandardMaterial color="#dde3fa" />
       </mesh>
       {/* Empennage */}
       <mesh position={[-1.45, 0.05, 0]}>
         <boxGeometry args={[0.55, 0.07, 1.5]} />
-        <meshStandardMaterial color="#38bdf8" />
+        <meshStandardMaterial color="#273fc5" />
       </mesh>
       <mesh position={[-1.5, 0.45, 0]}>
         <boxGeometry args={[0.5, 0.75, 0.07]} />
-        <meshStandardMaterial color="#f97316" />
+        <meshStandardMaterial color="#1b2c88" />
       </mesh>
       {/* Train d'atterrissage */}
       <mesh position={[0.5, -0.45, 0.4]} rotation={[0.3, 0, 0]}>
@@ -118,7 +118,7 @@ export default function PlaneScene() {
       gl={{ alpha: true, antialias: true }}
       style={{ touchAction: "pan-y" }}
     >
-      <hemisphereLight intensity={0.8} groundColor="#dbeafe" />
+      <hemisphereLight intensity={0.8} groundColor="#dde3fa" />
       <directionalLight position={[4, 6, 3]} intensity={1.6} />
       <directionalLight position={[-4, 2, -3]} intensity={0.4} />
       <Float speed={1.6} rotationIntensity={0.3} floatIntensity={0.9}>
@@ -130,7 +130,7 @@ export default function PlaneScene() {
         scale={9}
         blur={2.8}
         far={3}
-        color="#0c4a6e"
+        color="#1b2c88"
       />
     </Canvas>
   );

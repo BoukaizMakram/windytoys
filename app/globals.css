@@ -7,7 +7,16 @@
 }
 
 @theme {
-  --color-cloud: #f4f8fc;
+  --color-brand-50: #eef1fc;
+  --color-brand-100: #dde3fa;
+  --color-brand-200: #b9c4f3;
+  --color-brand-300: #8e9eea;
+  --color-brand-400: #5b71dc;
+  --color-brand: #273fc5;
+  --color-brand-600: #2035a6;
+  --color-brand-700: #1b2c88;
+  --color-brand-900: #131f60;
+  --color-cloud: #f4f6fd;
   --animate-marquee: marquee 36s linear infinite;
 }
 
@@ -27,8 +36,8 @@ body {
 }
 
 ::selection {
-  background: #bae6fd;
-  color: #0c4a6e;
+  background: #dde3fa;
+  color: #131f60;
 }
 
 @media (prefers-reduced-motion: reduce) {

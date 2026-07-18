@@ -124,7 +124,7 @@ export default function WaitlistModal({
       <div className="relative max-h-[92svh] w-full max-w-2xl overflow-y-auto rounded-t-[2rem] bg-white shadow-2xl shadow-slate-950/20 sm:rounded-[2rem]">
         <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-slate-100 bg-white/95 px-5 py-5 backdrop-blur sm:px-7">
           <div>
-            <p className="text-xs font-semibold tracking-widest text-sky-600 uppercase">
+            <p className="text-xs font-semibold tracking-widest text-brand uppercase">
               Waitlist AeroPlay
             </p>
             <h2 className="font-display mt-1 text-2xl font-bold text-slate-900">
@@ -160,14 +160,14 @@ export default function WaitlistModal({
             <button
               type="button"
               onClick={onClose}
-              className="mt-7 rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-sky-500"
+              className="mt-7 rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-brand"
             >
               Voir les autres avions
             </button>
           </div>
         ) : (
           <form onSubmit={onSubmit} className="grid gap-5 px-5 py-6 sm:px-7">
-            <div className="rounded-2xl bg-sky-50 p-4">
+            <div className="rounded-2xl bg-brand-50 p-4">
               <p className="text-sm font-semibold text-slate-900">
                 Mode conseillé pour toi
               </p>
@@ -188,7 +188,7 @@ export default function WaitlistModal({
                 placeholder="+212 6 00 00 00 00"
                 value={form.phone}
                 onChange={updateField("phone")}
-                className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
               />
             </label>
 
@@ -200,7 +200,7 @@ export default function WaitlistModal({
                   placeholder="Ton nom"
                   value={form.fullName}
                   onChange={updateField("fullName")}
-                  className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                  className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
                 />
               </label>
               <label className="grid gap-2">
@@ -214,7 +214,7 @@ export default function WaitlistModal({
                   placeholder="toi@email.com"
                   value={form.email}
                   onChange={updateField("email")}
-                  className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                  className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
                 />
               </label>
             </div>
@@ -227,7 +227,7 @@ export default function WaitlistModal({
                   placeholder="Casablanca, Rabat..."
                   value={form.city}
                   onChange={updateField("city")}
-                  className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                  className="rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
                 />
               </label>
               <label className="grid gap-2">
@@ -237,7 +237,7 @@ export default function WaitlistModal({
                 <select
                   value={form.preferredPaymentMethod}
                   onChange={updateField("preferredPaymentMethod")}
-                  className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                  className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
                 >
                   {PAYMENT_OPTIONS.map((option) => (
                     <option key={option}>{option}</option>
@@ -254,7 +254,7 @@ export default function WaitlistModal({
                 {PRICE_FEEDBACK.map((option) => (
                   <label
                     key={option.value}
-                    className="flex cursor-pointer items-center gap-2 rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 transition has-[:checked]:border-sky-400 has-[:checked]:bg-sky-50 has-[:checked]:text-sky-700"
+                    className="flex cursor-pointer items-center gap-2 rounded-2xl border border-slate-200 px-4 py-3 text-sm text-slate-700 transition has-[:checked]:border-brand-400 has-[:checked]:bg-brand-50 has-[:checked]:text-brand-700"
                   >
                     <input
                       type="radio"
@@ -262,7 +262,7 @@ export default function WaitlistModal({
                       value={option.value}
                       checked={form.priceFeedback === option.value}
                       onChange={updateField("priceFeedback")}
-                      className="h-4 w-4 accent-sky-500"
+                      className="h-4 w-4 accent-brand"
                     />
                     {option.label}
                   </label>
@@ -279,7 +279,7 @@ export default function WaitlistModal({
                 placeholder="Exemple : je veux un avion facile pour débuter, pièces de rechange, budget max 700 DH..."
                 value={form.note}
                 onChange={updateField("note")}
-                className="resize-none rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-100"
+                className="resize-none rounded-2xl border border-slate-200 px-4 py-3 text-slate-900 outline-none transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
               />
             </label>
 
@@ -292,7 +292,7 @@ export default function WaitlistModal({
             <button
               type="submit"
               disabled={submitState === "submitting"}
-              className="rounded-full bg-orange-500 px-7 py-4 font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:-translate-y-0.5 hover:bg-orange-600 disabled:cursor-wait disabled:opacity-60"
+              className="rounded-full bg-brand px-7 py-4 font-semibold text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-600 disabled:cursor-wait disabled:opacity-60"
             >
               {submitState === "submitting"
                 ? "Ajout en cours..."

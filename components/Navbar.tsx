@@ -24,8 +24,8 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6">
         <a href="#" className="font-display text-xl font-bold tracking-tight">
-          Aero<span className="text-sky-500">Play</span>
-          <span className="text-orange-500">.ma</span>
+          Aero<span className="text-brand">Play</span>
+          <span className="text-slate-400">.ma</span>
         </a>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -33,7 +33,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-slate-600 transition hover:text-sky-600"
+                className="text-sm font-medium text-slate-600 transition hover:text-brand"
               >
                 {link.label}
               </a>
@@ -43,7 +43,7 @@ export default function Navbar() {
 
         <a
           href="#avions"
-          className="hidden rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-500 md:block"
+          className="hidden rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand md:block"
         >
           Join waitlist
         </a>

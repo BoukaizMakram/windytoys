@@ -41,12 +41,12 @@ export default function Hero() {
       className="relative flex min-h-svh items-center overflow-hidden"
     >
       {/* Décor */}
-      <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-sky-100 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 -left-32 h-80 w-80 rounded-full bg-orange-50 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-100 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 -left-32 h-80 w-80 rounded-full bg-brand-50 blur-3xl" />
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-8 px-4 pt-24 pb-12 sm:px-6 lg:grid-cols-2 lg:gap-4 lg:pt-20">
         <div className="text-center lg:text-left">
-          <p className="hero-fade inline-flex items-center gap-2 rounded-full border border-sky-100 bg-sky-50 px-4 py-1.5 text-sm font-medium text-sky-700">
+          <p className="hero-fade inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-4 py-1.5 text-sm font-medium text-brand-700">
             🇲🇦 Waitlist ouverte au Maroc
           </p>
           <h1 className="font-display mt-6 text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
@@ -55,7 +55,7 @@ export default function Hero() {
             </span>
             <span className="block overflow-hidden">
               <span className="hero-line block">
-                ta <span className="text-sky-500">passion</span>.
+                ta <span className="text-brand">passion</span>.
               </span>
             </span>
           </h1>
@@ -66,13 +66,13 @@ export default function Hero() {
           <div className="hero-fade mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
             <a
               href="#avions"
-              className="rounded-full bg-orange-500 px-7 py-3.5 font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:-translate-y-0.5 hover:bg-orange-600"
+              className="rounded-full bg-brand px-7 py-3.5 font-semibold text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-600"
             >
               Rejoindre la waitlist
             </a>
             <a
               href="#comment-ca-marche"
-              className="rounded-full border border-slate-200 bg-white px-7 py-3.5 font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-600"
+              className="rounded-full border border-slate-200 bg-white px-7 py-3.5 font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand"
             >
               Comment ça marche
             </a>

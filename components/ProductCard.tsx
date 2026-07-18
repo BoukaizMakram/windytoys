@@ -7,7 +7,7 @@ const LEVEL_STYLES: Record<Product["level"], string> = {
   Débutant: "bg-emerald-50 text-emerald-700",
   Intermédiaire: "bg-amber-50 text-amber-700",
   Pro: "bg-rose-50 text-rose-700",
-  Collection: "bg-sky-50 text-sky-700",
+  Collection: "bg-brand-50 text-brand-700",
 };
 
 export default function ProductCard({
@@ -69,7 +69,7 @@ export default function ProductCard({
           <button
             type="button"
             onClick={() => onJoinWaitlist(product)}
-            className="shrink-0 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-500"
+            className="shrink-0 rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand"
           >
             Waitlist
           </button>

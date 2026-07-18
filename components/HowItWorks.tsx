@@ -23,7 +23,7 @@ export default function HowItWorks() {
     <section id="comment-ca-marche" className="scroll-mt-24 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold tracking-widest text-sky-600 uppercase">
+          <p className="text-sm font-semibold tracking-widest text-brand uppercase">
             Comment ça marche
           </p>
           <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -38,7 +38,7 @@ export default function HowItWorks() {
                 <span className="font-display absolute -top-3 -right-1 text-7xl font-bold text-slate-100 select-none">
                   {step.number}
                 </span>
-                <span className="font-display relative text-sm font-bold text-sky-500">
+                <span className="font-display relative text-sm font-bold text-brand">
                   Étape {i + 1}
                 </span>
                 <h3 className="font-display relative mt-3 text-xl font-semibold text-slate-900">
@@ -55,7 +55,7 @@ export default function HowItWorks() {
         <Reveal className="mt-12 text-center">
           <a
             href="#avions"
-            className="inline-block rounded-full bg-orange-500 px-8 py-4 font-semibold text-white shadow-lg shadow-orange-500/25 transition hover:-translate-y-0.5 hover:bg-orange-600"
+            className="inline-block rounded-full bg-brand px-8 py-4 font-semibold text-white shadow-lg shadow-brand/25 transition hover:-translate-y-0.5 hover:bg-brand-600"
           >
             Rejoindre la waitlist
           </a>

@@ -33,7 +33,7 @@ export default function Faq() {
     <section id="faq" className="scroll-mt-24 bg-cloud py-20 sm:py-28">
       <div className="mx-auto max-w-3xl px-4 sm:px-6">
         <Reveal className="text-center">
-          <p className="text-sm font-semibold tracking-widest text-sky-600 uppercase">
+          <p className="text-sm font-semibold tracking-widest text-brand uppercase">
             FAQ
           </p>
           <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -58,7 +58,7 @@ export default function Faq() {
                   >
                     <span className="font-semibold text-slate-900">{faq.q}</span>
                     <span
-                      className={`shrink-0 text-xl leading-none text-sky-500 transition-transform duration-300 ${
+                      className={`shrink-0 text-xl leading-none text-brand transition-transform duration-300 ${
                         isOpen ? "rotate-45" : ""
                       }`}
                       aria-hidden

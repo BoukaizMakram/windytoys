@@ -16,7 +16,7 @@ export default function Marquee() {
             className="flex items-center gap-3 pr-10 text-sm font-medium whitespace-nowrap text-slate-500"
           >
             {item}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#38bdf8" aria-hidden>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#273fc5" aria-hidden>
               <path d="M2 12 L22 4 L16 20 L11 14 Z" />
             </svg>
           </span>
