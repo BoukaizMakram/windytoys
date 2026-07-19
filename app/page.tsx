@@ -1,3 +1,4 @@
+import BottomNav from "@/components/BottomNav";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
@@ -22,6 +23,7 @@ export default function Home() {
         <Cta />
       </main>
       <Footer />
+      <BottomNav />
     </>
   );
 }

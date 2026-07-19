@@ -1,11 +1,15 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/site";
+import { useCart } from "@/lib/cart";
+import CartDrawer from "./CartDrawer";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { count, setOpen: setCartOpen } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -15,6 +19,7 @@ export default function Navbar() {
   }, []);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || open
@@ -23,10 +28,10 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6">
-        <a href="#" className="font-logo text-2xl font-normal sm:text-3xl">
+        <Link href="/" className="font-logo text-2xl font-normal sm:text-3xl">
           Windy<span className="text-brand">Toys</span>
           <span className="text-slate-400">.ma</span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
@@ -41,20 +46,48 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#avions"
-          className="hidden rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand md:block"
-        >
-          Join waitlist
-        </a>
+        <div className="flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={() => setCartOpen(true)}
+            aria-label="Ouvrir le panier"
+            className="relative flex h-10 w-10 items-center justify-center rounded-full text-slate-700 transition hover:text-brand"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden
+            >
+              <path d="M5 8h14l-1.2 12H6.2L5 8Z" />
+              <path d="M9 8a3 3 0 0 1 6 0" />
+            </svg>
+            {count > 0 && (
+              <span className="absolute -top-0.5 -right-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-brand px-1 text-[11px] font-bold text-white">
+                {count}
+              </span>
+            )}
+          </button>
 
-        <button
-          type="button"
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-          aria-expanded={open}
-          className="flex h-10 w-10 items-center justify-center rounded-full text-slate-700 md:hidden"
-        >
+          <Link
+            href="/#avions"
+            className="hidden rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand md:block"
+          >
+            Join waitlist
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={open}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-slate-700 md:hidden"
+          >
           <svg
             width="22"
             height="22"
@@ -70,7 +103,8 @@ export default function Navbar() {
               <path d="M4 7h16M4 12h16M4 17h16" />
             )}
           </svg>
-        </button>
+          </button>
+        </div>
       </nav>
 
       {open && (
@@ -88,15 +122,17 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <a
-            href="#avions"
+          <Link
+            href="/#avions"
             onClick={() => setOpen(false)}
             className="mt-4 block rounded-full bg-slate-900 py-3 text-center font-semibold text-white"
           >
             Rejoindre la waitlist
-          </a>
+          </Link>
         </div>
       )}
     </header>
+    <CartDrawer />
+    </>
   );
 }

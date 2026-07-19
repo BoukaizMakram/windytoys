@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import type { Product } from "@/lib/products";
 
 const LEVEL_STYLES: Record<Product["level"], string> = {
@@ -19,7 +20,10 @@ export default function ProductCard({
 }) {
   return (
     <article className="flex h-full flex-col rounded-3xl bg-white p-3 shadow-sm">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-cloud">
+      <Link
+        href={`/avions/${product.id}`}
+        className="group relative block aspect-[4/3] overflow-hidden rounded-2xl bg-[#dbdbdb]"
+      >
         {product.badge && (
           <span className="absolute top-3 left-3 z-10 rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700">
             {product.badge}
@@ -30,9 +34,9 @@ export default function ProductCard({
           alt={product.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-contain p-6"
+          className="object-contain p-6 transition duration-500 ease-out group-hover:scale-105"
         />
-      </div>
+      </Link>
 
       <div className="flex flex-1 flex-col gap-2.5 p-3 pt-4">
         <div className="flex items-center gap-2 text-xs">
@@ -44,7 +48,12 @@ export default function ProductCard({
           <span className="text-slate-400">{product.meta}</span>
         </div>
         <h3 className="font-display text-lg font-semibold text-slate-900">
-          {product.name}
+          <Link
+            href={`/avions/${product.id}`}
+            className="transition hover:text-brand"
+          >
+            {product.name}
+          </Link>
         </h3>
         <p className="text-sm leading-relaxed text-slate-500">{product.tagline}</p>
 

@@ -12,6 +12,8 @@ export type Product = {
   meta: string;
   /** Photo produit détourée (PNG transparent) dans public/. Tous les articles doivent en avoir une. */
   image: string;
+  /** Photos supplémentaires affichées dans la galerie de la page produit. */
+  gallery?: string[];
 };
 
 // Prix WindyToys : estimation fournisseur en USD x 10 (USD -> MAD) x 1.5 (marge 50 %),
@@ -27,6 +29,7 @@ export const PRODUCTS: Product[] = [
     badge: "Best-seller",
     meta: "Envergure 40 cm · 4 canaux · RTF",
     image: "/products/sport-cub-s2.png",
+    gallery: ["/products/sport-cub-s2-2.png"],
   },
   {
     id: "p51d-mustang",
@@ -37,6 +40,7 @@ export const PRODUCTS: Product[] = [
     price: 679,
     meta: "Envergure 40 cm · 4 canaux · RTF",
     image: "/products/p51d-mustang.png",
+    gallery: ["/products/p51d-mustang-2.png", "/products/p51d-mustang-3.png"],
   },
   {
     id: "f4u-corsair",
@@ -47,6 +51,7 @@ export const PRODUCTS: Product[] = [
     price: 689,
     meta: "Envergure 40 cm · 4 canaux · RTF",
     image: "/products/f4u-corsair.png",
+    gallery: ["/products/f4u-corsair-2.png", "/products/f4u-corsair-3.png"],
   },
   {
     id: "p40-warhawk",
@@ -58,6 +63,7 @@ export const PRODUCTS: Product[] = [
     badge: "Nouveau",
     meta: "Envergure 40 cm · 4 canaux · 2 batteries",
     image: "/products/p40-warhawk.png",
+    gallery: ["/products/p40-warhawk-2.png", "/products/p40-warhawk-3.png"],
   },
   {
     id: "t28-trojan",
@@ -68,6 +74,7 @@ export const PRODUCTS: Product[] = [
     price: 649,
     meta: "Envergure 40 cm · Gyro · RTF",
     image: "/products/t28-trojan.png",
+    gallery: ["/products/t28-trojan-2.png", "/products/t28-trojan-3.png"],
   },
   {
     id: "spitfire-400",
@@ -78,6 +85,7 @@ export const PRODUCTS: Product[] = [
     price: 689,
     meta: "Envergure 40 cm · 4 canaux · RTF",
     image: "/products/spitfire-400.png",
+    gallery: ["/products/spitfire-400-2.png", "/products/spitfire-400-3.png"],
   },
   {
     id: "bf109-400",
@@ -100,6 +108,10 @@ export const PRODUCTS: Product[] = [
     badge: "Fun",
     meta: "29 cm · 2.4 GHz · LED",
     image: "/products/syma-v22-osprey.png",
+    gallery: [
+      "/products/syma-v22-osprey-2.png",
+      "/products/syma-v22-osprey-3.png",
+    ],
   },
   {
     id: "f16-falcon",
@@ -111,6 +123,7 @@ export const PRODUCTS: Product[] = [
     badge: "Jet",
     meta: "26 cm · 4 canaux · 2 moteurs",
     image: "/products/f16-falcon.png",
+    gallery: ["/products/f16-falcon-2.png", "/products/f16-falcon-3.png"],
   },
   {
     id: "ranger-600s",
@@ -121,6 +134,7 @@ export const PRODUCTS: Product[] = [
     price: 829,
     meta: "Envergure 60 cm · 4 canaux · RTF",
     image: "/products/ranger-600s.png",
+    gallery: ["/products/ranger-600s-2.png", "/products/ranger-600s-3.png"],
   },
   {
     id: "ranger-2000",
@@ -131,6 +145,7 @@ export const PRODUCTS: Product[] = [
     price: 1799,
     meta: "Envergure 200 cm · 5 canaux · PNP",
     image: "/products/ranger-2000.png",
+    gallery: ["/products/ranger-2000-2.png", "/products/ranger-2000-3.png"],
   },
   {
     id: "asw28-sailplane",
@@ -141,6 +156,7 @@ export const PRODUCTS: Product[] = [
     price: 1949,
     meta: "Envergure 260 cm · 5 canaux · PNP",
     image: "/products/asw28-sailplane.png",
+    gallery: ["/products/asw28-sailplane-2.png", "/products/asw28-sailplane-3.png"],
   },
   {
     id: "p51-mustang-500",
@@ -151,6 +167,7 @@ export const PRODUCTS: Product[] = [
     price: 1729,
     meta: "Envergure 50 cm · Brushless · RTF",
     image: "/products/p51-mustang-500.png",
+    gallery: ["/products/p51-mustang-500-2.png", "/products/p51-mustang-500-3.png"],
   },
   {
     id: "malaysia-b777",
@@ -161,5 +178,6 @@ export const PRODUCTS: Product[] = [
     price: 49,
     meta: "Métal die-cast · 16 cm · Socle inclus",
     image: "/products/malaysia-b777.png",
+    gallery: ["/products/malaysia-b777-2.png", "/products/malaysia-b777-3.png"],
   },
 ];

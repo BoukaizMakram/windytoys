@@ -35,7 +35,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-slate-200/70">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-6 text-sm text-slate-400 sm:flex-row sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 pt-6 pb-24 text-sm text-slate-400 sm:flex-row sm:px-6">
           <p>© {new Date().getFullYear()} WindyToys.ma — Tous droits réservés</p>
           <p>Construit au Maroc</p>
         </div>

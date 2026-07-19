@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Space_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
+import { CartProvider } from "@/lib/cart";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -43,7 +44,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${spaceGrotesk.variable} ${talina.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-white font-sans text-slate-900">
-        {children}
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

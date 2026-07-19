@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
 
 export default function Cta() {
@@ -5,9 +6,15 @@ export default function Cta() {
     <section className="py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-brand px-6 py-16 text-center sm:px-16 sm:py-20">
-            <div className="pointer-events-none absolute -top-20 -left-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
-            <div className="pointer-events-none absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-brand-900/50 blur-3xl" />
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-900 px-6 py-16 text-center sm:px-16 sm:py-24">
+            <Image
+              src="/store.png"
+              alt="L'intérieur de la boutique WindyToys, remplie d'avions RC"
+              fill
+              sizes="(max-width: 1152px) 100vw, 1152px"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-900/95 via-brand-900/70 to-brand-900/40" />
 
             <span className="relative inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-white">
               Offre de lancement

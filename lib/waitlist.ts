@@ -7,7 +7,8 @@ export type WaitlistInput = {
   productId: string;
   productName: string;
   targetPrice: number;
-  phone: string;
+  /** Au moins un des deux contacts (téléphone ou email) est requis. */
+  phone?: string;
   fullName?: string;
   email?: string;
   city?: string;
@@ -25,7 +26,7 @@ export type WaitlistEntry = {
   productId: string;
   productName: string;
   targetPrice: number;
-  phone: string;
+  phone: string | null;
   fullName: string | null;
   email: string | null;
   city: string | null;
@@ -43,7 +44,7 @@ type WaitlistRow = {
   product_id: string;
   product_name: string;
   target_price: number;
-  phone: string;
+  phone: string | null;
   full_name: string | null;
   email: string | null;
   city: string | null;
@@ -80,7 +81,7 @@ export function parseWaitlistInput(payload: unknown): WaitlistInput {
 
   const data = payload as Record<string, unknown>;
   const targetPrice = Number(data.targetPrice);
-  const priceFeedback = data.priceFeedback;
+  const priceFeedback = data.priceFeedback ?? "good";
 
   if (!Number.isInteger(targetPrice) || targetPrice < 0 || targetPrice > 100000) {
     throw new Error("targetPrice is invalid");
@@ -94,14 +95,19 @@ export function parseWaitlistInput(payload: unknown): WaitlistInput {
     throw new Error("priceFeedback is invalid");
   }
 
-  const phone = normalizePhone(cleanRequiredText(data.phone, "phone", 32));
-  const email = cleanRequiredText(data.email, "email", 160).toLowerCase();
+  const rawPhone = cleanText(data.phone, 32);
+  const phone = rawPhone ? normalizePhone(rawPhone) : undefined;
+  const email = cleanText(data.email, 160)?.toLowerCase();
 
-  if (phone.length < 9) {
+  if (!phone && !email) {
+    throw new Error("Laisse au moins un téléphone ou un email");
+  }
+
+  if (phone && phone.length < 9) {
     throw new Error("phone is too short");
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     throw new Error("email is invalid");
   }
 
@@ -134,7 +140,7 @@ export async function ensureWaitlistTable() {
       product_id text not null,
       product_name text not null,
       target_price integer not null,
-      phone text not null,
+      phone text,
       full_name text,
       email text,
       city text,
@@ -147,9 +153,23 @@ export async function ensureWaitlistTable() {
     )
   `;
 
+  // Migration : le téléphone n'est plus obligatoire (téléphone OU email suffit).
   await sql`
-    create unique index if not exists aeroplay_waitlist_phone_product_idx
-      on aeroplay_waitlist (phone, product_id)
+    alter table aeroplay_waitlist alter column phone drop not null
+  `;
+
+  await sql`
+    drop index if exists aeroplay_waitlist_phone_product_idx
+  `;
+
+  // Déduplique une même personne (téléphone + email) sur un même produit.
+  await sql`
+    create unique index if not exists aeroplay_waitlist_contact_product_idx
+      on aeroplay_waitlist (
+        (coalesce(phone, '')),
+        (coalesce(email, '')),
+        product_id
+      )
   `;
 
   await sql`
@@ -201,7 +221,7 @@ export async function createWaitlistEntry(input: WaitlistInput) {
       ${input.productId},
       ${input.productName},
       ${input.targetPrice},
-      ${input.phone},
+      ${input.phone ?? null},
       ${input.fullName ?? null},
       ${input.email ?? null},
       ${input.city ?? null},
@@ -211,7 +231,8 @@ export async function createWaitlistEntry(input: WaitlistInput) {
       ${input.note ?? null},
       ${input.userAgent ?? null}
     )
-    on conflict (phone, product_id) do update set
+    on conflict ((coalesce(phone, '')), (coalesce(email, '')), product_id)
+    do update set
       updated_at = now(),
       product_name = excluded.product_name,
       target_price = excluded.target_price,
